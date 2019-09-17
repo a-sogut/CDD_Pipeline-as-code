@@ -1,0 +1,105 @@
+{
+	"objects": [
+		{
+			"application": "Local|GarantiBBVA",
+			"name": "%CDE.CURRENT_TIME%",
+			"kind": "ApplicationVersion"
+		},
+		{
+			"version": "%CDE.CURRENT_TIME%",
+			"applicationVersions": [
+				"Local|GarantiBBVA/%CDE.CURRENT_TIME%"
+			], 
+			"runOnCreation": false,
+			"ownerParties": [
+				"superuser@ca.com"
+			],
+			"memberParties": [
+				"superuser@ca.com"
+			],
+			"name": "GarantiBBVA",
+			"kind": "Release"
+		},
+		{
+			"value": "",
+			"scope": "RELEASE_SCOPE",
+			"releaseTokenTemplate": "packageName",
+			"release": "GarantiBBVA/%CDE.CURRENT_TIME%",
+			"kind": "ReleaseToken"
+		},
+		{
+			"environments": [
+				"Dev"
+			],
+			"release": "GarantiBBVA/%CDE.CURRENT_TIME%",
+			"skipTasksWithUnchangedApplications": false,
+			"approvalGate": "AUTOMATIC",
+			"isApprovalRequired": false,
+			"name": "Ph1-Auto",
+			"kind": "Phase"
+		},
+		{
+			"environments": [
+				"UAT"
+			],
+			"release": "GarantiBBVA/%CDE.CURRENT_TIME%",
+			"skipTasksWithUnchangedApplications": false,
+			"approvalGate": "MANUAL",
+			"previousPhase": "Ph1-Auto",
+			"isApprovalRequired": false,
+			"name": "Ph2-Manual Approvals",
+			"kind": "Phase"
+		},
+		{
+			"phase": "GarantiBBVA/%CDE.CURRENT_TIME%/Ph1-Auto",
+			"isDisabled": false,
+			"name": "do bla bla",
+			"kind": "Task"
+		},
+		{
+			"applicationVersions": [
+				"Local|GarantiBBVA/%CDE.CURRENT_TIME%"
+			],
+			"phase": "GarantiBBVA/%CDE.CURRENT_TIME%/Ph1-Auto",
+			"previousTasks": [
+				"do bla bla"
+			],
+			"isDisabled": false,
+			"name": "ReadThis TASK",
+			"kind": "Task"
+		},
+		{
+			"applicationVersions": [
+				"Local|GarantiBBVA/%CDE.CURRENT_TIME%"
+			],
+			"phase": "GarantiBBVA/%CDE.CURRENT_TIME%/Ph1-Auto",
+			"previousTasks": [
+				"ReadThis TASK"
+			],
+			"isDisabled": false,
+			"name": "And then read THIS",
+			"kind": "Task"
+		},
+		{
+			"applicationVersions": [
+				"Local|GarantiBBVA/%CDE.CURRENT_TIME%"
+			],
+			"phase": "GarantiBBVA/%CDE.CURRENT_TIME%/Ph2-Manual Approvals",
+			"isDisabled": false,
+			"name": "do bla bla",
+			"kind": "Task"
+		},
+		{
+			"applicationVersions": [ 
+				"Local|GarantiBBVA/%CDE.CURRENT_TIME%"
+			],
+			"phase": "GarantiBBVA/%CDE.CURRENT_TIME%/Ph2-Manual Approvals",
+			"previousTasks": [
+				"do bla bla"
+			],
+			"isDisabled": false,
+			"name": "Approve PLEASE",
+			"kind": "Task"
+		}
+	]
+}
